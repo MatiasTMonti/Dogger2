@@ -3,6 +3,7 @@
 * {
   box-sizing: border-box;
 }
+
 .footer {
   height: 300px;
   color: grey;
@@ -13,22 +14,22 @@
   background-color: white;
   border-bottom: black 2px solid;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   min-width: 100%;
 }
 
 .header_izquierda {
-  margin-left: 20px;
   margin: auto;
-  width: 20%;
+  padding: 20px;
 }
 
 
 .header_medio {
-  flex-wrap: wrap;
+  display: flex;
   margin:auto;
   justify-content: center;
-  width: 60%;
+  flex-wrap: wrap;
 }
 
 .material-icons lupa {
@@ -44,11 +45,27 @@
   margin: auto;
 }
 
-.header_derecha {
+.header_derecha ul {
+  margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+
+}
+
+
+.avatarMenu img{
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+.header_derecha  {
   flex-wrap: wrap;
   display: flex;
   margin: auto;
-  width: 20%;
+  min-width: 20%;
   margin-right: 20px;
 }
 
@@ -62,7 +79,7 @@
   font-weight: 600 ;
   text-transform: uppercase;
   color: black;
-  font-size: 12px;
+  font-size: 1em;
   margin: auto;
   padding: 5px;
   justify-content: flex-end;
@@ -134,16 +151,33 @@ background: #000; /* Cambiamos el fondo cuando el usuario pase el mouse */
 transform: translateX(-50px);
 }
 
+.material-icons persona {
+  display: none;
+}
+
+
 @media screen and (min-width: 768px) {
   .header_hamburguesa {
     display:none;
     }
 }
 
+@media only screen and (max-width: 1138px) {
+  .boton_registrarse {
+    display:none;
+    }
+  .boton_perfil {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .boton_registrarse {
     display:none;
     }
+  .boton_perfil {
+    display: none;
+  }
   .menu_lateral_derecha, .menu_lateral_izquierda {
     display: none;
   }
@@ -154,6 +188,8 @@ transform: translateX(-50px);
   .contenedor_header {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
   }
 
   .header_medio {
@@ -175,13 +211,15 @@ transform: translateX(-50px);
     flex-wrap: wrap;
     display: flex;
     margin: auto;
-
   }
 
   .header_izquierda {
     margin-left: 20px;
     margin: auto;
     width: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   .material-icons lupa {
@@ -191,7 +229,7 @@ transform: translateX(-50px);
   }
 
   .imagen_logo {
-    width: 80%;
+    width: 60%;
     vertical-align: middle;
     display: block;
     margin: auto;
@@ -253,42 +291,117 @@ transform: translateX(-50px);
 
 }
 
+/*Empieza css del footer*/
+
+
+
+.containerFooter{
+  height: 30px;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #E7E7E7;
+}
+
+.listaOpcionesFooter{
+  width: 80%;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.cadaOpcionFooter {
+  text-transform: uppercase;
+  font-size: 0.6em;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+/*Responsive del Footer*/
+  .containerFooter{
+    width: 100%;
+  }
+  .listaOpcionesFooter{
+    width: 50%;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+
+/*Termina css del footer*/
+
 
 
 
 /*Empieza css de la parte del login y registracion*/
+
 .bodyRegistro, .bodyInicioSesion {
   background-color: black;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /*Caja Blanca*/
 .informacionInicioSesion {
   background-color: white; /*Fondo Blanco*/
-  width: 700px;
-  height: 450px;
+  max-width: 700px;
   margin-top: 70px;
 }
 
 .informacionRegistrarse {
   background-color: white; /*Fondo Blanco*/
+  max-width: 700px;
+  margin-top: 70px;
+}
+
+.modificarPerfil {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  background-color: white; /*Fondo Blanco*/
   width: 700px;
-  height: 750px;
   margin-top: 70px;
 }
 
 /*General*/
 .formulariosRegistro {
-  display: block;
   margin: auto;
   text-align: center;
   margin-top: 60px;
-  padding:0px;
-  margin-bottom: 20px;
+  padding-bottom: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.checkbox {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.preguntaContraseña a {
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .formulariosInicioSesion {
   margin: auto;
-  width: 500px;
+  max-width: 500px;
   text-align: center;
   margin-top: 80px;
   padding:0px;
@@ -310,7 +423,7 @@ transform: translateX(-50px);
   margin-top: 20px;
 }
 
-#nombreApellidoRegistro, #nombreUsuarioRegistro, #emailRegistro, #contraseñaRegistro, #nombreUsuario, #select, #fotoDePerfil, #customCheck1 {
+#nombreApellidoRegistro, #nombreUsuarioRegistro, #emailRegistro, #contraseñaRegistro, #nombreUsuario, #select, #fotoDePerfil, #customCheck1{
   outline: 0;
   border:0;
   vertical-align:baseline;
@@ -341,11 +454,27 @@ transform: translateX(-50px);
   margin-top: 10px;
 }
 
+.cambiarFoto{
+  width: 20%;
+}
 
+.modificarDatos{
+  width: 75%;
+}
 
-.fotoPerfil {
-  width: auto;
-  padding-bottom: 10px;
+.campoPerfil img {
+
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+
+}
+
+.subirFoto img {
+  width: 150px;
+  height: 150px;
+  border: 2px solid black;
+
 }
 
 .campoPerfil{
@@ -378,18 +507,9 @@ transform: translateX(-50px);
 .botones {
   text-transform: uppercase;
   font-weight: bolder;
-  margin-top: 150px;
 }
 
-.botonListo {
-  text-align: center;
-}
-
-.botonRegistrarse {
-  text-align: center;
-}
-
-.botonA, .botonB {
+.botonB {
   outline: 0;
   border:0;
   margin-right: 0px;
@@ -403,8 +523,28 @@ transform: translateX(-50px);
   color: black;
   font-size: 12px;
   background: white;
-  border: 1px solid red;
   width: 700px;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.botonA {
+  outline: 0;
+  border:0;
+  margin-right: 0px;
+  margin-left: 0px;
+  vertical-align:baseline;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 10px;
+  color: black;
+  font-size: 12px;
+  background: white;
+  width: 700px;
+  margin-top: 50px;
+  margin-bottom: 100px;
 }
 
 #repetirContrasenia{
@@ -417,15 +557,15 @@ transform: translateX(-50px);
 }
 
 
-.terminosCondiciones {
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
 @media (max-width: 768px) {
 /*Resposnive de la parte del login*/
   .bodyRegistro, .bodyInicioSesion {
     background-color: white;
+  }
+
+  .informacionInicioSesion, .informacionRegistrarse .modificarPerfil {
+    max-width: 100%;
+    margin-bottom: 10px;
   }
 
   .infoPregunta {
@@ -440,7 +580,7 @@ transform: translateX(-50px);
   }
 
   #nombre, #contraseña{
-    font-size: 20px;
+    font-size: 1em;
     border-bottom: black 1px solid;
     width: 200px;
     margin-top: 20px;
@@ -452,34 +592,30 @@ transform: translateX(-50px);
     font-size: 1em;
   }
 
-
-  .botonListo {
-    background: black;
-  }
-
-  .botonRegistrarse {
-  }
-
   .botonA {
-    color:black;
+    color: white;
     width: 100%;
+    background-color: black;
+    margin-top: 0px;
   }
   .botonB {
     color: white;
     width: 100%;
     background-color: black;
+    margin-top: 0px;
   }
 
   .botones {
-    margin-top: 20%;
-    margin-bottom: 40%;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
+
   /*Resposnive de la parte de registracion*/
-  #nombreApellidoRegistro, #nombreUsuarioRegistro, #emailRegistro, #contraseñaRegistro {
+  #nombreApellidoRegistro, #fotoUsuarioRegistro, #nombreUsuarioRegistro, #emailRegistro, #contraseñaRegistro {
     border-bottom: black 1px solid;
     width: 200px;
     padding: 10px;
-    font-size: 20px;
+    font-size: 1em;
   }
 }
 /*Termina css de la parte del login y registracion*/
@@ -646,6 +782,7 @@ transform: translateX(-50px);
   height: 235px;
   flex: wrap;
   margin-top: 25px;
+  position: relative;
 }
 
 .publicacion img{
@@ -687,7 +824,7 @@ transform: translateX(-50px);
 
 .texto_publicacion {
   background-color: rgba(106, 106, 106, 0.7);
-  position: relative;
+  position: absolute;
   z-index: 2;
   top: 150px;
   height: 110px;
@@ -713,9 +850,8 @@ transform: translateX(-50px);
   flex-wrap: wrap;
   justify-content: space-between;
   width: 200px;
-  position: relative;
   bottom: 15px;
-
+  position: absolute;
 }
 
 .etiquetas_publicacion {
@@ -723,8 +859,7 @@ transform: translateX(-50px);
   color: #C0BFBF;
   text-transform: uppercase;
   font-weight: lighter;
-
-
+  position: absolute;
 }
 
 #etiquetita {
@@ -924,6 +1059,7 @@ transform: translateX(-50px);
 
 .logo img{
   width: 20%;
+  margin-bottom: 100px;
 }
 
 
@@ -1067,6 +1203,7 @@ transform: translateX(-50px);
 .compartir{
   margin-top: 115px;
 }
+
 
 
 @media query (max-width: 768px) {
