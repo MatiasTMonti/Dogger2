@@ -31,4 +31,8 @@ class User extends Authenticatable
     public function posts(){
         return $this->hasMany('App\Post');
     }
+    //Relacion de uno a muchos con tabla followers
+    public function followers(){
+        return $this->hasMany('App\followers');
+    }
 }

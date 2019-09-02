@@ -4,19 +4,20 @@
   box-sizing: border-box;
 }
 
-.footer {
-  height: 300px;
-  color: grey;
-}
+
 /*Empieza css del header*/
 
-.contenedor_header {
+.main-header {
   background-color: white;
   border-bottom: black 2px solid;
+}
+
+.contenedor_header {
+  max-width: 1200px;
+  margin: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  min-width: 100%;
 }
 
 .header_izquierda {
@@ -45,22 +46,55 @@
   margin: auto;
 }
 
-.header_derecha ul {
+.reg-log-nav > ul {
+  list-style: none;
   margin: 0;
-	padding: 0;
-	list-style: none;
-	text-decoration: none;
-	border: none;
-	outline: none;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.reg-log-nav > ul > li {
+  position: relative;
+}
+
+.reg-log-nav > ul > li:hover .drop-nav-reg-log {
+  display: flex;
+  background-color: black;
+  padding: 30px;
+  margin-top: 10px;
+}
+
+#linkHeader {
+    color: white;
 
 }
 
-
-.avatarMenu img{
+.user-avatar img{
   width: 50px;
   height: 50px;
   border-radius: 100%;
 }
+
+.drop-nav-reg-log {
+  list-style: none;
+  padding: 5px;
+  margin: 0;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  width: 150%;
+  left: 0;
+  bottom: 0;
+  transform: translateY(100%);
+}
+
+.drop-nav-reg-log li {
+  width: 100%;
+}
+
 .header_derecha  {
   flex-wrap: wrap;
   display: flex;
@@ -156,34 +190,23 @@ transform: translateX(-50px);
 }
 
 
+
 @media screen and (min-width: 768px) {
   .header_hamburguesa {
     display:none;
     }
 }
 
-@media only screen and (max-width: 1138px) {
-  .boton_registrarse {
-    display:none;
-    }
-  .boton_perfil {
-    display: none;
-  }
-}
 
 @media only screen and (max-width: 768px) {
-  .boton_registrarse {
-    display:none;
-    }
-  .boton_perfil {
-    display: none;
-  }
   .menu_lateral_derecha, .menu_lateral_izquierda {
     display: none;
   }
 }
 
 @media (max-width: 768px) {
+
+
 /*Resposnive del header*/
   .contenedor_header {
     width: 100%;
@@ -193,43 +216,24 @@ transform: translateX(-50px);
   }
 
   .header_medio {
-    flex-wrap: wrap;
     margin:auto;
-    justify-content: center;
-    width: 90%;
 
   }
   .header_hamburguesa {
-    display: flex;
-    flex: wrap;
     margin: auto;
-    margin-right: 20px;
-    margin-left: 20px;
   }
 
   .header_derecha {
-    flex-wrap: wrap;
-    display: flex;
     margin: auto;
   }
 
   .header_izquierda {
-    margin-left: 20px;
-    margin: auto;
-    width: 10%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: none;
   }
 
-  .material-icons lupa {
-    padding: 10px;
-    justify-content: flex-end;
-    margin-top: 5px;
-  }
 
   .imagen_logo {
-    width: 60%;
+    width: 40%;
     vertical-align: middle;
     display: block;
     margin: auto;
@@ -245,7 +249,7 @@ transform: translateX(-50px);
     font-weight: 600 ;
     text-transform: uppercase;
     color: black;
-    font-size: 12px;
+    font-size: 0.8em;
     margin: auto;
     padding: 10px;
     justify-content: flex-end;
@@ -289,14 +293,33 @@ transform: translateX(-50px);
   transform: translateX(0);
 }
 
+  .show_menu_lateral {
+    display: block !important;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    width: 100%;
+  }
+
+  .show_menu_lateral ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: black;
+    display: flex;
+    justify-content: space-between;
+  }
+
 }
 
 /*Empieza css del footer*/
 
-
+.footer {
+  height: 300px;
+  color: grey;
+}
 
 .containerFooter{
-  height: 30px;
   position: fixed;
   bottom: 0;
   text-align: center;
@@ -355,32 +378,24 @@ transform: translateX(-50px);
   background-color: white; /*Fondo Blanco*/
   max-width: 700px;
   margin-top: 70px;
+  padding-bottom: 40px;
+  padding-top: 40px;
 }
 
 .informacionRegistrarse {
   background-color: white; /*Fondo Blanco*/
   max-width: 700px;
   margin-top: 70px;
-}
+  padding-bottom: 80px;
+  padding-top: 40px;
 
-.modificarPerfil {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  background-color: white; /*Fondo Blanco*/
-  width: 700px;
-  margin-top: 70px;
 }
 
 /*General*/
 .formulariosRegistro {
   margin: auto;
   text-align: center;
-  margin-top: 60px;
   padding-bottom: 80px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 .checkbox {
   display: flex;
@@ -401,15 +416,9 @@ transform: translateX(-50px);
 
 .formulariosInicioSesion {
   margin: auto;
-  max-width: 500px;
   text-align: center;
-  margin-top: 80px;
-  padding:0px;
-  margin-bottom: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
+
 /*Tipografia del formulario*/
 #nombre, #contraseña{
   outline: 0;
@@ -441,25 +450,44 @@ transform: translateX(-50px);
 }
 
 
-.campoForm{
-  outline: 0;
-  border:0;
-  vertical-align:baseline;
-  background:transparent;
-  text-align: center;
-  font-weight: lighter;
-  border-bottom: black 1px solid;
-  width: 500px;
-  padding: 10px;
-  margin-top: 10px;
+.contenedor_modifPerfil {
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border: 1px red black;
+  max-width: 700px;
+  margin-top: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.botonC {
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  letter-spacing: 3px;
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 1em;
+  margin-top: 20px;
+  margin-left: 150px;
+}
+
+#modifFormato {
+  border-bottom: 1px black solid;
+  width: 100%;
 }
 
 .cambiarFoto{
-  width: 20%;
+  width: 25%;
 }
 
 .modificarDatos{
   width: 75%;
+
 }
 
 .campoPerfil img {
@@ -509,7 +537,7 @@ transform: translateX(-50px);
   font-weight: bolder;
 }
 
-.botonB {
+.botonB, .botonA {
   outline: 0;
   border:0;
   margin-right: 0px;
@@ -528,24 +556,6 @@ transform: translateX(-50px);
   margin-bottom: 100px;
 }
 
-.botonA {
-  outline: 0;
-  border:0;
-  margin-right: 0px;
-  margin-left: 0px;
-  vertical-align:baseline;
-  text-align: center;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  padding: 10px;
-  color: black;
-  font-size: 12px;
-  background: white;
-  width: 700px;
-  margin-top: 50px;
-  margin-bottom: 100px;
-}
 
 #repetirContrasenia{
   margin-bottom: 70px;
@@ -556,6 +566,21 @@ transform: translateX(-50px);
   margin-bottom: 15px;
 }
 
+@media (max-width: 500px) {
+  .contenedor_modifPerfil {
+    flex-wrap: wrap;
+    direction: column;
+    align-items: center;
+  }
+  .cambiarFoto{
+    width: 100%;
+  }
+
+  .modificarDatos{
+    width: 100%;
+
+  }
+}
 
 @media (max-width: 768px) {
 /*Resposnive de la parte del login*/
@@ -592,18 +617,13 @@ transform: translateX(-50px);
     font-size: 1em;
   }
 
-  .botonA {
+  .botonA, .botonB {
     color: white;
     width: 100%;
     background-color: black;
     margin-top: 0px;
   }
-  .botonB {
-    color: white;
-    width: 100%;
-    background-color: black;
-    margin-top: 0px;
-  }
+
 
   .botones {
     margin-top: 10px;
@@ -826,7 +846,7 @@ transform: translateX(-50px);
   background-color: rgba(106, 106, 106, 0.7);
   position: absolute;
   z-index: 2;
-  top: 150px;
+  top: 125px;
   height: 110px;
   padding: 10px;
 }
@@ -896,6 +916,7 @@ transform: translateX(-50px);
   margin-right: 20%;
   margin-top: 20px;
   border-bottom: 1px black solid;
+  margin-bottom: 20px;
 }
 
 .container_encabezado img{
@@ -940,6 +961,7 @@ transform: translateX(-50px);
   flex-wrap: nowrap;
   margin-left: 5px;
   margin: auto;
+  margin-bottom: 20px;
 }
 
 .seguidores_seguidos_publicaciones_blanco ul, .seguidores_seguidos_publicaciones ul {
@@ -1062,6 +1084,15 @@ transform: translateX(-50px);
   margin-bottom: 100px;
 }
 
+.boton_seguir {
+  background-color: black;
+  text-transform: uppercase;
+	border: none;
+	padding: 5px;
+	font: inherit;
+	outline: inherit;
+  color: white;
+}
 
 
 @media (max-width: 768px) {
@@ -1142,6 +1173,7 @@ transform: translateX(-50px);
 /*Empieza css del timeline*/
 
 .publicaciones_timeline{
+  position: relative;
   max-width: 700px;
   margin-left: 20%;
   margin-right: 20%;
@@ -1150,6 +1182,14 @@ transform: translateX(-50px);
   justify-content: space-around;
   margin-top: 50px;
   margin: auto;
+}
+
+
+
+.details {
+  position: absolute;
+  color: white;
+  left: 0px;
 }
 
 .publicacion_timeline1{
@@ -1175,11 +1215,6 @@ transform: translateX(-50px);
 
 }
 .parte_negra{
-  background-color: black;
-  width: 60px;
-  height: 250px;
-
-
 }
 
 .imagen_timeline{
@@ -1189,19 +1224,19 @@ transform: translateX(-50px);
 }
 
 .parte_negra ul{
-  list-style: none;
-  margin-right:  0px;
   color: white;
-  padding: 20px;
-  text-align: center;
-  margin: auto;
-}
-.likear {
-  margin-top: 5px;
+  list-style: none;
+  padding: 0px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 10px;
+
 }
 
-.compartir{
-  margin-top: 115px;
+.parte_negra ul li i{
+  font-size: 1.5em;
 }
 
 
@@ -1218,4 +1253,90 @@ transform: translateX(-50px);
     display: none;
   }
 
+}
+
+  /*Subir Foto*/
+.tamaño_foto{
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+}
+
+.containerSubirFoto {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.modal-content {
+  border-radius: 0 !important;
+  border: black 2px solid !important;
+}
+
+.modal-header {
+  border-bottom: black 2px solid !important;
+  margin-bottom: 10px;
+}
+
+.infoSubirFoto{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.infoCostadoSubirFoto{
+  width: 80%;
+  direction: column;
+  justify-content: space-around;
+}
+.btn {
+  border-radius: 0px !important;
+}
+
+.modal-footer {
+  padding: 0px;
+}
+
+.modal-body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.nombreUsuarioSubirFoto {
+  color: lightgray;
+  font-weight: normal;
+}
+
+
+.subirFoto {
+  background-color: gray;
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-weight: lighter;
+  margin-bottom: 20px;
+}
+
+.tamañoFoto {
+  width: 100%;
+}
+
+.form-control {
+  background-clip: none !important;
+  border: 0px !important;
+}
+
+.comentarioSubirFoto {
+
+}
+
+.botonPublicar {
+  background-color: black;
+  font-weight: normal;
+  color: white;
+  text-transform: uppercase;
+  border: 0px;
+  width: 100%;
 }
